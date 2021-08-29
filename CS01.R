@@ -4,7 +4,6 @@ library(testthat)
 # See the .github/classroom/autograding.json file for details.
 # Need to move this to another repository for easier updating
 
-setwd("..")
 
 # Case study script
 context("File Exists")
