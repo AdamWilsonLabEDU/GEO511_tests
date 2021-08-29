@@ -1,0 +1,25 @@
+library(testthat)
+
+# Could potentially break the testthat.R into separate tests and assign different points for each test. 
+# See the .github/classroom/autograding.json file for details.
+# Need to move this to another repository for easier updating
+
+setwd("..")
+
+# Case study script
+context("File Exists")
+f_cs01="CS01.R"
+
+test_that(paste0("Your script file, (",f_cs01, ") exists"),{
+  expect_true(file.exists(f_cs01))
+})
+
+context("File sources without error")
+source(f_cs01)
+
+context("Results")
+test_that("petal_length_mean",{
+  expect_true(exists("petal_length_mean"))
+  expect_equal(petal_length_mean, 3.758)
+})
+
