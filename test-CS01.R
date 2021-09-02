@@ -5,20 +5,23 @@ library(testthat)
 # Need to move this to another repository for easier updating
 
 
-# Case study script
-context("File Exists")
-f_cs01="CS01.R"
+########### 
+# Case Study 01
 
-test_that(paste0("Your script file, (",f_cs01, ") exists"),{
+# Case study script
+context("Case Study 01 - File Exists")
+f_cs01="week_01/case_study_01.R"
+
+test_that(paste0(f_cs01, " file exists"),{
   expect_true(file.exists(f_cs01))
 })
 
-context("File sources without error")
+context("Case Study 01 - File runs")
 source(f_cs01)
 
-context("Results")
+context("Case Study 01 - Results")
+
 test_that("petal_length_mean",{
   expect_true(exists("petal_length_mean"))
   expect_equal(petal_length_mean, 3.758)
 })
-
