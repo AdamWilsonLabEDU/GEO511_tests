@@ -2,7 +2,6 @@ library(testthat)
 
 # Could potentially break the testthat.R into separate tests and assign different points for each test. 
 # See the .github/classroom/autograding.json file for details.
-# Need to move this to another repository for easier updating
 
 
 ########### 
@@ -17,7 +16,9 @@ test_that(paste0(f_cs01, " file exists"),{
 })
 
 context("Case Study 01 - File runs")
-source(f_cs01)
+test_that("File sources without errors", {
+expect_silent(source(f_cs01))
+})
 
 context("Case Study 01 - Results")
 
