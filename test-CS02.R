@@ -19,6 +19,6 @@ expect_silent(source(file))
 
 context("Case Study 01 - Results")
 test_that(paste0(file, " file includes geom_smooth"), {
-  expect_true(grepl("geom_smooth",scan(file)))
+  expect_true(grepl("geom_smooth",scan(file,what="character")))
 })
 
