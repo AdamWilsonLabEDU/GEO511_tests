@@ -16,18 +16,17 @@ file_rmd="week_04/case_study_04.Rmd"
 
 # If .Rmd file exists, use it instead of R file
 if(file.exists(file_rmd)){
-  file_purl=gsub("*.Rmd","_purl.R",file_rmd)
-  knitr::purl(file_rmd,output=file_purl)
-  file_r=file_purl  
 
   context("Case Study 04 - Rmd file compiles successfully")
-  
   test_that(paste0(file_rmd, " compiles successfully with rmarkdown::render()"),{
-    expect_error(rmarkdown::render(file_rmd),NA)
+    expect_error(rmarkdown::render(file_rmd,quiet = T),NA)
   })
   
-  
-    }
+  # now purl to check content
+  file_purl=gsub("*.Rmd","_purl.R",file_rmd)
+  knitr::purl(file_rmd,output=file_purl,quiet=T)
+  file_r=file_purl  # overwrite path to use purled file for tests below
+}
 
 # The tests below run against original R (if no .Rmd) or purled Rmd file.
 
