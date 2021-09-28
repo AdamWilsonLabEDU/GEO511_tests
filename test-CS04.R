@@ -9,7 +9,6 @@ list.files("week_04",pattern="[.]R^|[.]Rmd^")
 
 file="week_04/case_study_04.R"
 file_rmd="week_04/case_study_04.Rmd"
-if(
 
 
 
