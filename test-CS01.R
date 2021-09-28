@@ -10,15 +10,23 @@ library(testthat)
 # Case study script
 context("Case Study 01 - File Exists")
 f_cs01="week_01/case_study_01.R"
+f_cs01b="week_01/case_study_01.Rmd"
 
 test_that(paste0(f_cs01, " file exists"),{
-  expect_true(file.exists(f_cs01))
+  expect_true(file.exists(f_cs01)|file.exists(f_cs01b))
 })
 
 context("Case Study 01 - File runs")
 test_that("File sources without errors", {
 expect_silent(source(f_cs01))
 })
+
+if(file.exists(f_cs01b)){
+  test_that("File builds without errors", {
+    expect_silent(rmarkdown::render(f_cs01b))
+  })
+  
+}
 
 context("Case Study 01 - Results")
 
