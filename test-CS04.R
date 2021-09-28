@@ -13,11 +13,13 @@ file_rmd="week_04/case_study_04.Rmd"
 
 
 context("Case Study 04 - File Exists")
+
 test_that(paste0(file, " file exists"),{
   expect_true(file.exists(file))
 })
 
 context("Case Study 04 - File Sources without errors")
+
 test_that(paste0(file, " file sources without errors"), {
 expect_silent(source(file))
 })
